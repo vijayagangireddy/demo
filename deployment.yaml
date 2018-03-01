@@ -1,0 +1,18 @@
+---
+ apiVersion: extensions/v1beta1
+ kind: Deployment
+ metadata:
+   name: kubesnmp
+ spec:
+   replicas: 2
+   template:
+     metadata:
+       labels:
+         app: kubesnmp
+     spec:
+       containers:
+         - name: kubesnmp
+           image: snmp
+           ports:
+             - containerPort: 8082
+        

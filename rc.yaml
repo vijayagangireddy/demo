@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: snmppod
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: snmppod
+      labels:
+        app: snmppod
+    spec:
+      containers:
+      - name: snmppod
+        image: snmp
+        ports:
+        - containerPort: 8082
+        imagePullPolicy: Never
+        
+                     

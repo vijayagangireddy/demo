@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nms-pod
+spec:
+  containers:
+  - image: snmp
+    name: c1
+    imagePullPolicy: Never
+    ports:
+         - containerPort: 8082
+    volumeMounts:
+    - mountPath: /tmp/bhargavi
+      name: sharevol
+  volumes:
+  - name: sharevol
+    hostPath:
+      # directory location on host
+     path: /home/tcs/file.txt
+      # this field is optional
+     type: File
